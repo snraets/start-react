@@ -30,6 +30,10 @@ class AddChore extends Component {
     }
 }
 
+function mapState (state) {
+    return {newChore: state.newChore}
+}
+
 function mapDispatch(dispatch){
     return {
         addChore: (chore) => dispatch(addChore(chore))

@@ -15,18 +15,24 @@ function loadChoresEpic(action$, store) {
 
 function addChoresEpic(action$) {
 
-    return action$.ofType(NEW_CHORE)
-        .switchMap(({payload}) => {
-            return Observable.ajax({
-                body: JSON.stringify(payload),
-                headers: {
-                    'Accept': 'application/json',
-                    'Content-Type': 'application/json'
-                },
-                method: 'POST',                
-                url: choresUrl
-            });
-        });
+    return action$.do( res => { debugger } )
+        .ignoreElements();
+
+    // return action$.ofType(NEW_CHORE)
+    //     .switchMap(({payload}) => {
+
+    //         debugger;
+
+    //         return Observable.ajax({
+    //             body: JSON.stringify(payload),
+    //             headers: {
+    //                 'Accept': 'application/json',
+    //                 'Content-Type': 'application/json'
+    //             },
+    //             method: 'POST',                
+    //             url: choresUrl
+    //         });
+    //     });
 }
 
 export const rootEpic = combineEpics(
